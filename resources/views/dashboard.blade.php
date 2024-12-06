@@ -49,8 +49,8 @@
                         </div>
                         <div>
                             <label for="address"class="block text-gray-700">Description</label>
-                            <input type="text" id="description" name="description" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
-                        </div>
+                            <textarea id="description" name="description" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm"></textarea>
+                            </div>
                         <div>
                             <label for="address"class="block text-gray-700">Manufacturer</label>
                             <input type="text" id="manufacturer" name="manufacturer" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm">
@@ -86,12 +86,16 @@
                                 <td class="py-2 border-b px-4 text-center">{{ $product -> stock_quantity }}</td>
                                 <td class="py-2 border-b px-4 text-center">{{ $product -> description }}</td>
                                 <td class="py-2 border-b px-4 text-center">{{ $product -> manufacturer }}</td>
-                                <td class="py-2 border-b px-4">
-                                    <a href="{{ route('product.edit', $product->id) }}" class="text-blue-500 hover:text-blue-700">Edit</a>
+                                <td class="py-2 border-b px-4 text-center">
+                                    <a href="{{ route('product.edit', $product->id) }}" class="text-blue-500 hover:text-blue-700">
+                                        <i class="fas fa-edit"></i>
+                                    </a>
                                     <form method="POST" action="{{ route('product.destroy', $product->id) }}" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="text-red-500 hover:text-red-700">Delete</button>
+                                        <button type="submit" class="text-red-500 hover:text-red-700" style="background:none; border:none; padding:0;">
+                                             <i class="fas fa-trash-alt"></i>
+                                        </button>
                                     </form>
                                 </td>
                             </tr>
