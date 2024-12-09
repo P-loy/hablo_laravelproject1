@@ -74,6 +74,7 @@
                             <th class="py-2 border-b">Stock Quantity</th>
                             <th class="py-2 border-b">Description</th>
                             <th class="py-2 border-b">Manufacturer</th>
+                            <th class="py-2 border-b">Action</th>
                         </tr>
                     </thead>
                     <tbody id="product-table">
@@ -88,13 +89,14 @@
                                 <td class="py-2 border-b px-4 text-center">{{ $product -> manufacturer }}</td>
                                 <td class="py-2 border-b px-4 text-center">
                                     <a href="{{ route('product.edit', $product->id) }}" class="text-blue-500 hover:text-blue-700">
-                                        <i class="fas fa-edit"></i>
+                                        <button>Edit</button>
                                     </a>
                                     <form method="POST" action="{{ route('product.destroy', $product->id) }}" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
+                                        |
                                         <button type="submit" class="text-red-500 hover:text-red-700" style="background:none; border:none; padding:0;">
-                                             <i class="fas fa-trash-alt"></i>
+                                             Delete
                                         </button>
                                     </form>
                                 </td>
